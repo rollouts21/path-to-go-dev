@@ -1,18 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	number := 10
+	err := errors.New("something")
 
-	pointer := &number
-
-	fmt.Println(pointer)
-
-	foo(pointer)
-}
-
-func foo(n *int) {
-	fmt.Println(n)
-	fmt.Println(*n)
+	fmt.Println(err)
 }
