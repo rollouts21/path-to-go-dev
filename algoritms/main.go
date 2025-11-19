@@ -3,13 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	// list := []int{5, 3, 6, 2, 10}
+	list := []int{5, 3, 6, 2, 10}
 	// item := 3
 	// fmt.Println(binarySearch(list, item))
 	// fmt.Println(selectionSort(list))
 	// countdown(3)
 	//
-	fmt.Println(fact(3))
+	// fmt.Println(fact(3))
+	// fmt.Println(sum(list))
+	// fmt.Println(countElements(list))
+	fmt.Println(quickSort(list))
 }
 
 func binarySearch(list []int, item int) int {
@@ -67,5 +70,47 @@ func fact(x int) int {
 		return 1
 	} else {
 		return x * fact(x-1)
+	}
+}
+
+func sum(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	} else {
+		return nums[0] + sum(nums[1:])
+	}
+	// return 1919
+}
+
+func countElements(arr []int) int {
+	if len(arr) == 1 {
+		return 1
+	} else if len(arr) == 0 {
+		return 0
+	} else {
+		return 1 + countElements(arr[1:])
+	}
+}
+
+func quickSort(array []int) []int {
+	if len(array) < 2 {
+		return array
+	} else {
+		pivot := array[0]
+		less := []int{}
+		for _, value := range array[1:] {
+			if value <= pivot {
+				less = append(less, value)
+			}
+		}
+		greater := []int{}
+		for _, value := range array[1:] {
+			if value > pivot {
+				greater = append(greater, value)
+			}
+		}
+		result := append(quickSort(less), pivot)
+		result = append(result, quickSort(greater)...)
+		return result
 	}
 }
