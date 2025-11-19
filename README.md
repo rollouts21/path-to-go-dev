@@ -8,9 +8,9 @@
 
 - **Laptop**: Lenovo Thinkpad x1 carbon gen 6th
 - **OS**:
-- [Omarchy Linux](https://omarchy.org/)
-- Hyprland
-- Catppuccin
+  - [Omarchy Linux](https://omarchy.org/)
+  - Hyprland
+  - Catppuccin
 - **Code editor**: LazyVim
 
 ## Этап 1. Подготовка (1-2 дня)
