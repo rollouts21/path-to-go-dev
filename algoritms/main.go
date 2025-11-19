@@ -33,12 +33,12 @@ func binarySearch(list []int, item int) int {
 }
 
 func findSmallest(arr []int) int {
-	smallest := arr[0] // исправлено опечатку "samllet"
+	smallest := arr[0]
 	smallest_index := 0
 	for i := 1; i < len(arr); i++ {
 		if arr[i] < smallest {
 			smallest = arr[i]
-			smallest_index = i // исправлено с 1 на i
+			smallest_index = i
 		}
 	}
 	return smallest_index
