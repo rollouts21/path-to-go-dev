@@ -1,4 +1,15 @@
 # Путь к golang разработчику
+Всем привет! Спустя кучу языков, которые я пробовал мне больше всего понравился golang и именно его я решил выбрать. 
+
+Здесь мой путь по становлению golang разработчиком. 
+
+## Мой сетап 
+**Laptop**: Lenovo Thinkpad x1 carbon gen 6th
+**OS**:
+- [Omarchy Linux](https://omarchy.org/)
+- Hyprland
+- Catppuccin
+**Code editor**: LazyVim
 
 ## Этап 1. Подготовка (1-2 дня)
 
