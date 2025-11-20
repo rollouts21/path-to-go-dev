@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	list := []int{5, 3, 6, 2, 10}
+	// list := []int{5, 3, 6, 2, 10}
 	// item := 3
 	// fmt.Println(binarySearch(list, item))
 	// fmt.Println(selectionSort(list))
@@ -12,7 +12,12 @@ func main() {
 	// fmt.Println(fact(3))
 	// fmt.Println(sum(list))
 	// fmt.Println(countElements(list))
-	fmt.Println(quickSort(list))
+	// fmt.Println(quickSort(list))
+	// hashMap()
+	// phoneBook()
+	voteList("tom")
+	voteList("tom")
+	voteList("ts")
 }
 
 func binarySearch(list []int, item int) int {
@@ -112,5 +117,30 @@ func quickSort(array []int) []int {
 		result := append(quickSort(less), pivot)
 		result = append(result, quickSort(greater)...)
 		return result
+	}
+}
+
+func hashMap() {
+	book := make(map[string]float64)
+	book["milk"] = 1.49
+	book["avocado"] = 1.49
+	fmt.Println(book)
+}
+
+func phoneBook() {
+	book := make(map[string]int64)
+	book["jenny"] = 88005553535
+	book["emergency"] = 112
+	fmt.Println(book["jenny"])
+}
+
+var voted = map[string]bool{}
+
+func voteList(name string) {
+	if voted[name] {
+		fmt.Println("Kick them out!")
+	} else {
+		voted[name] = true
+		fmt.Println("let them vote!")
 	}
 }
