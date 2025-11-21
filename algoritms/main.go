@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func main() {
 	// list := []int{5, 3, 6, 2, 10}
@@ -15,9 +18,10 @@ func main() {
 	// fmt.Println(quickSort(list))
 	// hashMap()
 	// phoneBook()
-	voteList("tom")
-	voteList("tom")
-	voteList("ts")
+	// voteList("tom")
+	// voteList("tom")
+	// voteList("ts")
+	algoBFS()
 }
 
 func binarySearch(list []int, item int) int {
@@ -143,4 +147,50 @@ func voteList(name string) {
 		voted[name] = true
 		fmt.Println("let them vote!")
 	}
+}
+
+func graphs() map[string][]string {
+	graph := make(map[string][]string)
+	graph["you"] = []string{"alice", "bob", "claire"}
+	graph["bob"] = []string{"anuj", "peggy"}
+	graph["alice"] = []string{"peggy"}
+	graph["claire"] = []string{"thom", "jonny"}
+	graph["anuj"] = []string{}
+	graph["peggy"] = []string{}
+	graph["thom"] = []string{}
+	graph["jonny"] = []string{}
+	return graph
+}
+
+func algoBFS() string { // Breadth-First Search
+	graph := make(map[string][]string)
+	graph["you"] = []string{"alice", "bob", "claire"}
+	graph["bob"] = []string{"anuj", "peggy"}
+	graph["alice"] = []string{"peggy"}
+	graph["claire"] = []string{"thom", "jonny"}
+	graph["anuj"] = []string{}
+	graph["peggy"] = []string{"thom"}
+	graph["thom"] = []string{}
+	graph["jonny"] = []string{}
+	searchQueue := []string{}
+	searchQueue = append(searchQueue, graph["you"]...)
+	serached := []string{}
+	var person string
+	for i := 0; i < len(searchQueue); i++ {
+		if len(searchQueue) > 0 {
+			person = searchQueue[i]
+			searchQueue = searchQueue[i:]
+		}
+		if !slices.Contains(serached, person) {
+			if person[len(person)-1] == 'm' {
+				fmt.Println("Yes", person)
+				return person
+			} else {
+				searchQueue = append(searchQueue, graph[person]...)
+				serached = append(serached, person)
+			}
+		}
+	}
+	fmt.Println("No")
+	return ""
 }
